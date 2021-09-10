@@ -1,0 +1,63 @@
+Module 4 Coding Questions
+
+Question 1.)
+All of the questions in this quiz refer to the open source Chinook Database. Please familiarize yourself with the ER diagram in order to familiarize yourself with the table and column names in order to write accurate queries and get the appropriate answers.
+
+Pull a list of customer ids with the customer’s full name, and address, along with combining their city and country together. Be sure to make a space in between these two and make it UPPER CASE. (e.g. LOS ANGELES USA)
+
+Answer 1:
+select CustomerID, Firstname,Lastname, Address, upper(City || ' ' || Country) as CityCountry
+from customers
+
+Question 2.)
+All of the questions in this quiz refer to the open source Chinook Database. Please familiarize yourself with the ER diagram in order to familiarize yourself with the table and column names in order to write accurate queries and get the appropriate answers.
+
+Create a new employee user id by combining the first 4 letters of the employee’s first name with the first 2 letters of the employee’s last name. Make the new field lower case and pull each individual step to show your work.
+
+Answer 2:
+select lower(substr(firstname,1,4) || substr(lastname,1,2)) as userid
+from employees
+where Firstname = 'Robert' and lastname = 'King'
+
+Question 3.) 
+All of the questions in this quiz refer to the open source Chinook Database. Please familiarize yourself with the ER diagram in order to familiarize yourself with the table and column names in order to write accurate queries and get the appropriate answers.
+
+Show a list of employees who have worked for the company for 15 or more years using the current date function. Sort by lastname ascending.
+
+Answer 3:
+select *
+from employees
+where (Date('now') - hiredate) > 15
+order by lastname
+
+Question 4.)
+All of the questions in this quiz refer to the open source Chinook Database. Please familiarize yourself with the ER diagram in order to familiarize yourself with the table and column names in order to write accurate queries and get the appropriate answers.
+
+Profiling the Customers table, answer the following question.
+
+Answer 4:
+select * from customers
+where phone is null   (do same thing for all fields we are checking null)
+
+Question 5.) 
+All of the questions in this quiz refer to the open source Chinook Database. Please familiarize yourself with the ER diagram in order to familiarize yourself with the table and column names in order to write accurate queries and get the appropriate answers.
+
+Find the cities with the most customers and rank in descending order.
+
+Answer 5:
+select city, count(*) as num
+from customers
+group by city
+order by num desc
+
+Question 6.)
+All of the questions in this quiz refer to the open source Chinook Database. Please familiarize yourself with the ER diagram in order to familiarize yourself with the table and column names in order to write accurate queries and get the appropriate answers.
+
+Create a new customer invoice id by combining a customer’s invoice id with their first and last name while ordering your query in the following order: firstname, lastname, and invoiceID.
+
+Answer 6:
+select  c.firstname || c.lastname || i.invoiceid 
+from invoices as i
+inner join customers as c
+using(customerid)
+order by c.firstname, c.lastname, i.invoiceid
