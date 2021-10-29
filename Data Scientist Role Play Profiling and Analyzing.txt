@@ -81,7 +81,6 @@ FROM elite_years
 Note: Primary Keys are denoted in the ER-Diagram with a yellow key icon.	
 
 
-
 3. Are there any columns with null values in the Users table? Indicate "yes," or "no."
 
 	Answer: No
@@ -258,7 +257,7 @@ No
 
 	/*
 	Running the following query shows the ratio of number of reviews to number of fans
-	is not consistent.  There is not a direct corrolation of the number of reviews
+	is not consistent.  There is not a direct correlation of the number of reviews
 	written to the number of fans.
 	*/
 SELECT id,name,review_count,fans, review_count/fans
@@ -356,7 +355,7 @@ Part 2: Inferences and Analysis
 
 1. Pick one city and category of your choice and group the businesses in that city or category by their overall star rating. Compare the businesses with 2-3 stars to the businesses with 4-5 stars and answer the following questions. Include your code.
 
-City: Anthem 
+City: Las Vegas 
 Category: Adult 
 	
 i. Do the two groups you chose to analyze have a different distribution of hours?
